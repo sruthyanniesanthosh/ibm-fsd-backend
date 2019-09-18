@@ -1,6 +1,9 @@
+package services;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+
+import model.Employee;
 
 public class EmployeeService  {
 	
@@ -27,12 +30,23 @@ public class EmployeeService  {
 	
 	public static void view(int id,ArrayList<Employee> emplist) {
 		System.out.println("The details-");
-		emplist.forEach(e->
-		{if(((Employee) e).getEmpId()==id) {
-						
-			System.out.println(e.toString());}});
-		
-		
+		int flag = 0;
+				
+		Iterator<Employee> itr1 = emplist.iterator();
+
+        while (itr1.hasNext()) {
+            Employee e  = itr1.next();
+		if(((Employee) e).getEmpId()==id) {
+		 
+			System.out.println(e.toString());
+			flag++;
+					
+		}
+		}
+        if(flag==0) {
+        	System.out.println("Employee details of the given id does not exist");
+        }
+				
 	}
 	
 	public static void viewAll(ArrayList<Employee> emplist) {
@@ -45,22 +59,25 @@ public class EmployeeService  {
 	public static void delete(int id, ArrayList<Employee> emplist) {
 		
 		Iterator<Employee> itr1 = emplist.iterator();
-
+		int flag = 0;
         while (itr1.hasNext()) {
             Employee e  = itr1.next();
             if(e.getEmpId()==id) {
             	itr1.remove();
+            	flag++;
             }
           }
-
+        if(flag!=0)
 		System.out.println("The required employee details have been deleted");
+        else
+        	System.out.println("The required details doesnot exist");
 						
 	}
 	
 	public static void update(int id, ArrayList<Employee> emplist) {
 		
 		Iterator<Employee> itr = emplist.iterator();
-
+		int flag = 0;
         int id1 = 0;
         while (itr.hasNext()) {
         	
@@ -68,6 +85,7 @@ public class EmployeeService  {
             if(e.getEmpId()==id) {
                 id1 = id;
             	itr.remove();
+            	flag++;
             	
         		           	
             }
@@ -85,11 +103,12 @@ public class EmployeeService  {
 		String country = sc.next();
 		emplist.add(new Employee(id1,name,age,dept,desgn,country));
 		
-
+		if(flag!=0)
 		System.out.println("The required employee details have been updated");
+		else
+			System.out.println("The required details does not exist");
 						
 	}
 		
 		
-	
 }
