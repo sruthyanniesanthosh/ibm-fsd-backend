@@ -1,3 +1,4 @@
+package model;
 
 public class Employee {
 int empId;
@@ -6,6 +7,7 @@ int age;
 String dept;
 String desgn;
 String country;
+public Employee() {};
 public Employee(int empId, String name, int age, String dept, String desgn, String country) {
 	super();
 	this.empId = empId;
