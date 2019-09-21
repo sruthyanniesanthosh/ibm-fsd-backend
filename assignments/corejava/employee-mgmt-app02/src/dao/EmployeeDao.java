@@ -323,7 +323,7 @@ static ResultSet rs = null;
 		}
 
 		// STEP 5: Extract data from result set
-		// Header
+		
 		System.out.format("\t%s \t%s \t%s \t%s \t%s \t%s\n", "Id", "Age", "Name", "Designation", "Department",
 				"Country");
 		try {

@@ -32,8 +32,7 @@ public class EmployeeService  {
 					 ("C:\\Training\\ibm-fsd-backend\\assignments\\employees.txt"))));
 			    input.useDelimiter(",|\n");
 
-			    
-			    while(input.hasNext()) {
+			       while(input.hasNext()) {
 			        int id = input.nextInt();
 			        String name = input.next();
 			        int age = input.nextInt();

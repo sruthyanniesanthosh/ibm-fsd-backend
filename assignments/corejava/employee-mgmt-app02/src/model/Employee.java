@@ -19,6 +19,7 @@ public Employee(int empId, String name, int age, String dept, String desgn, Stri
 public Employee() {
 	// TODO Auto-generated constructor stub
 }
+
 public int getEmpId() {
 	return empId;
 }
